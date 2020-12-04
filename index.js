@@ -73,6 +73,10 @@ function cookieSession(options) {
       // unset
       if (false === sess) return null;
 
+      if (!req.headers) {
+        debug('undefined req headers, req: %O', req.headers)
+      }
+
       json = cookies.get(name, req.sessionOptions)
 
       if (json) {
